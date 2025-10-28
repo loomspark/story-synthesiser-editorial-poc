@@ -16,7 +16,7 @@ Key Contacts
 Key Documents
 -------------
 
--   **The Full Vision:** [Link to "Story Synthesiser Project Summary" Google Doc]
+-   **The Full Vision:** [Link to "Story Synthesiser Project Summary" Google Doc](https://docs.google.com/document/d/1agnpyRNVPFN-QcOToBnM3jOArYQuqndXMJr4NMdfR10/edit?usp=sharing)
 
 -   **The Brand Voice:** `Brand_Voice.pdf` (See `/data` folder)
 
