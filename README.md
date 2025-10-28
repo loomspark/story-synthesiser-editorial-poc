@@ -18,7 +18,7 @@ Key Documents
 
 -   **The Full Vision:** [Link to "Story Synthesiser Project Summary" Google Doc](https://docs.google.com/document/d/1agnpyRNVPFN-QcOToBnM3jOArYQuqndXMJr4NMdfR10/edit?usp=sharing)
 
--   **The Brand Voice:** `Brand_Voice.pdf` (See `/data` folder)
+-   **The Brand Voice:** `Made Impact Brand Voice.pdf` (See project files)
 
 Prerequisites
 -------------
