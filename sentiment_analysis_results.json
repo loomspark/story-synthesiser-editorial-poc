@@ -1,0 +1,67 @@
+[
+  {
+    "storyId": "bbe18146-9b33-4a20-8981-3a68952420f2",
+    "title": "Slap of Fresh Air: My Gap Year Awakening",
+    "userId": "c3758536-415f-47f5-9336-74158f33d8f8",
+    "userName": "Cedric Ferry",
+    "destinationCountry": "New Zealand",
+    "experienceType": "Gap Year",
+    "sentiment": {
+      "sentiment": "unknown",
+      "score": 0,
+      "explanation": "Could not parse Ollama response."
+    }
+  },
+  {
+    "storyId": "7fd8043e-2bdf-40c1-8263-56b37d5c7c56",
+    "title": "Lost in Shinjuku: A German Girls Tokyo Awakening",
+    "userId": "5366b94a-b676-4761-832a-d7ea764b1e75",
+    "userName": "Samantha Daugherty",
+    "destinationCountry": "Japan",
+    "experienceType": "Internship",
+    "sentiment": {
+      "sentiment": "unknown",
+      "score": 0,
+      "explanation": "Could not parse Ollama response."
+    }
+  },
+  {
+    "storyId": "f0e20c7c-4000-4a98-b9f7-c5b65a0bae3d",
+    "title": "Slapping Away Culture Shock in Buenos Aires",
+    "userId": "453b280d-7889-4ea8-905d-edb8aa591888",
+    "userName": "Noel Wehner",
+    "destinationCountry": "Argentina",
+    "experienceType": "Au Pair",
+    "sentiment": {
+      "sentiment": "unknown",
+      "score": 0,
+      "explanation": "Could not parse Ollama response."
+    }
+  },
+  {
+    "storyId": "f0265989-5b9b-4cc9-aec2-07afa3c70f29",
+    "title": "Step into Jaipurs Vibrant Chaos",
+    "userId": "a6abc767-77fd-455d-8e3d-062180b9fe8e",
+    "userName": "Jaime Hoppe",
+    "destinationCountry": "India",
+    "experienceType": "Gap Year",
+    "sentiment": {
+      "sentiment": "unknown",
+      "score": 0,
+      "explanation": "Could not parse Ollama response."
+    }
+  },
+  {
+    "storyId": "28257fd3-dabd-4336-9205-f30c8c1cf9cc",
+    "title": "Lost in Land Down Under",
+    "userId": "d806453f-f03a-48b6-90cb-26d936f5c609",
+    "userName": "Jenna Sauer V",
+    "destinationCountry": "Australia",
+    "experienceType": "Internship",
+    "sentiment": {
+      "sentiment": "unknown",
+      "score": 0,
+      "explanation": "Could not parse Ollama response."
+    }
+  }
+]
