@@ -33,38 +33,63 @@ export default function App() {
     setAcceptedStories((prev) => prev.filter((s) => s?.story?.id !== id));
   }
 
+  /*
+   NOTE: Mock AI processing example (commented out so it does not run)
+   -------------------------------------------------------------------
+   If you want to develop without the backend/Ollama running, you can
+   temporarily replace startAiProcessing with the mock below.
+
+   async function startAiProcessing(toProcess) {
+     setAiLoading(true);
+     setAiResults([]);
+     try {
+       const mock = await new Promise((resolve) =>
+         setTimeout(() => {
+           resolve(
+             toProcess.map((s) => ({
+               original: s,
+               altered: {
+                 id: s?.story?.id,
+                 title: s?.story?.title,
+                 content:
+                   'AI Edited (mock, 40 words): ' +
+                   (s?.story?.content || '').slice(0, 200),
+                 notes: 'Mock response used (no backend/ollama).',
+               },
+             }))
+           );
+         }, 800)
+       );
+       setAiResults(mock);
+     } finally {
+       setAiLoading(false);
+     }
+   }
+  */
+
   async function startAiProcessing(toProcess) {
     setAiLoading(true);
     setAiResults([]);
 
     try {
-      // Replace this mock with a real API call:
-      // const res = await fetch('/api/ai/transform', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ stories: toProcess }),
-      // });
-      // const data = await res.json();
+      const res = await fetch('http://localhost:3001/api/ai/transform', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          stories: toProcess,
+          model: 'llama3:8b',
+          instructions:
+            'Rewrite the story into a single paragraph of no more than 40 words. Preserve the key moment and tone. Remove specifics that identify people or exact locations. Keep language plain and warm.',
+        }),
+      });
 
-      // Mock result: echo story with "AI Edited:" prefix and an added field
-      const mock = await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve(
-            toProcess.map((s) => ({
-              original: s,
-              altered: {
-                id: s?.story?.id,
-                title: s?.story?.title,
-                content:
-                  'AI Edited: ' + (s?.story?.content || '').slice(0, 800),
-                notes: 'Edited to AI team specifications (mock).',
-              },
-            }))
-          );
-        }, 1200)
-      );
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || 'AI error');
+      }
 
-      setAiResults(mock);
+      const data = await res.json();
+      setAiResults(data);
     } catch (e) {
       setSubmissionMsg('AI processing failed. Please try again.');
       setTimeout(() => setSubmissionMsg(''), 2500);
@@ -77,28 +102,28 @@ export default function App() {
     const newIds = acceptedStories
       .map((s) => s?.story?.id)
       .filter((id) => typeof id === 'number' && !submittedIds.includes(id));
-  
+
     if (newIds.length === 0) {
       setSubmissionMsg('Nothing new to submit.');
       setTimeout(() => setSubmissionMsg(''), 2000);
       return;
     }
-  
+
     const toProcess = acceptedStories.filter((s) =>
       newIds.includes(s?.story?.id)
     );
-  
+
     setSubmissionMsg('Submission accepted.');
     setSubmittedIds((prev) => [...prev, ...newIds]);
-  
+
     // Clear the accepted list after a successful submit
     setAcceptedStories([]);
-  
+
     // Go to the AI page
     setShowSummary(false);
     setShowAIPage(true);
     startAiProcessing(toProcess);
-  
+
     setTimeout(() => setSubmissionMsg(''), 2000);
   }
 
@@ -113,7 +138,8 @@ export default function App() {
         <AiResults
           loading={aiLoading}
           results={aiResults}
-          onBack={() => { setShowAIPage(false);
+          onBack={() => {
+            setShowAIPage(false);
             setShowSummary(true);
           }}
         />
@@ -135,7 +161,9 @@ export default function App() {
           onSubmit={handleSubmitAccepted}
         />
         <div className="controls">
-          <button onClick={() => setShowSummary(false)}>Back to Moderation</button>
+          <button onClick={() => setShowSummary(false)}>
+            Back to Moderation
+          </button>
         </div>
       </div>
     );

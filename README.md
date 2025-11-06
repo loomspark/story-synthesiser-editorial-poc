@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Story Moderator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React app for moderating user stories, selecting accepted ones, and generating AI‑altered versions in a defined format. It includes:
 
-## Available Scripts
+- Moderation view to step through stories and Accept/Reject
+- Summary view to review accepted stories (cards, metrics, delete per card, submit all)
+- AI results view that sends accepted stories to a local Ollama model (via a small Node/Express proxy) and displays transformed outputs
 
-In the project directory, you can run:
+## Project structure
 
-### `npm start`
+- `src/` React UI (moderation, summary, AI results, modal)
+- `public/stories_analyzed.json` Sample dataset (array of entries)
+- `server/` Minimal Node/Express proxy that calls Ollama’s HTTP API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js 18+
+- Ollama installed locally and running (Windows, macOS, Linux)
+  - Download: `https://ollama.com/`
+  - Windows (PowerShell, optional): `winget install Ollama.Ollama`
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Install frontend deps and run the app
 
-### `npm run build`
+```bash
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If port 3000 is busy, answer “Y” to run on another port.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Start the backend proxy (in a separate terminal)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+cd server
+npm install
+npm start
+```
 
-### `npm run eject`
+You should see: `AI proxy listening on http://localhost:3001`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Ensure Ollama is running and a model is available
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Verify API is up:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+curl http://127.0.0.1:11434/api/tags
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Pull a model (recommended smaller model):
 
-## Learn More
+```bash
+ollama pull llama3:8b
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If you prefer another model, pull it and adjust the server default (see below).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How it works
 
-### Code Splitting
+The React app calls the proxy at `http://localhost:3001/api/ai/transform` with accepted stories and a prompt. The proxy builds a prompt per story and calls Ollama at `http://127.0.0.1:11434/api/generate`. Results are returned and rendered as AI‑altered story cards.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Changing the prompt (instructions)
 
-### Analyzing the Bundle Size
+You can change the AI instructions in either place:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Frontend request: `src/App.js` inside `startAiProcessing` body
 
-### Making a Progressive Web App
+```js
+// src/App.js (excerpt)
+await fetch('http://localhost:3001/api/ai/transform', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    stories: toProcess,
+    model: 'llama3:8b',
+    instructions:
+      'Rewrite the story into a single paragraph of no more than 40 words. Preserve the key moment and tone. Remove specifics that identify people or exact locations. Keep language plain and warm.',
+  }),
+});
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Server prompt builder: `server/index.js` in `buildPrompt(story, instructions)`
 
-### Advanced Configuration
+```js
+// server/index.js (excerpt)
+function buildPrompt(story, instructions) {
+  // ... gather story fields
+  return `
+You are an editing assistant. Transform the story into the requested format.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Instructions:
+${
+  instructions ||
+  'Rewrite the story into a single paragraph of no more than 40 words. ...'
+}
 
-### Deployment
+Story Context:
+...`;
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+If you pass `instructions` from the frontend, the server uses those; otherwise it falls back to its default text in `buildPrompt`.
 
-### `npm run build` fails to minify
+## Changing the model
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Default model (server): `server/index.js`
+
+```js
+// server/index.js (excerpt)
+const { stories, instructions, model = 'llama3:8b' } = req.body || {};
+```
+
+To use a different model, either pull and set it here or pass `model` from the frontend request body.
+
+## Development without Ollama (mock)
+
+There is a commented mock in `src/App.js` above `startAiProcessing` showing how to generate fake AI results. Uncomment and use during UI development if you don’t want to run the server/Ollama.
+
+## Typical flow
+
+1. Open the app; review each story and Accept/Reject
+2. Go to Summary; optionally remove any card, then Submit All
+3. The app navigates to AI Results and shows transformed versions
+4. Use “Back” to return to Summary
+
+## Troubleshooting
+
+- “AI processing failed” or hanging:
+  - Ensure the proxy is running: `cd server && npm start`
+  - Ensure Ollama is running and the model is pulled: `ollama pull llama3:8b`
+  - Check available models: `curl http://127.0.0.1:11434/api/tags`
+  - Watch server logs for errors

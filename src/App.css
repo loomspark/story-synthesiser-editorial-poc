@@ -52,10 +52,14 @@
   position: relative;
   margin: 30px 0;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 15px 25px rgba(0,0,0,0.1),
-    inset 0 -4px 8px rgba(0,0,0,0.05),
-    inset 0 4px 8px rgba(255,255,255,0.8);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.05),
+    inset 0 4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.story-card.black-theme {
+  background: linear-gradient(145deg, #333333, #444444);
+  color: #ffffff;
 }
 
 .story-card::before {
@@ -92,7 +96,7 @@
   margin: 15px 0;
   border-radius: 8px;
   line-height: 1.6;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 button {
@@ -125,25 +129,24 @@ button:hover {
 
 .story-card:hover {
   transform: translateY(-5px);
-  box-shadow: 
-    0 20px 30px rgba(0,0,0,0.15),
-    inset 0 -4px 8px rgba(0,0,0,0.05),
-    inset 0 4px 8px rgba(255,255,255,0.8);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.05),
+    inset 0 4px 8px rgba(255, 255, 255, 0.8);
 }
 
 .story-card:hover::before {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.story-card[data-sentiment="Heartwarming"] {
+.story-card[data-sentiment='Heartwarming'] {
   background: linear-gradient(145deg, #fff5f5, #ffe8e8);
 }
 
-.story-card[data-sentiment="Positive"] {
+.story-card[data-sentiment='Positive'] {
   background: linear-gradient(145deg, #f0fff4, #e6ffee);
 }
 
-.story-card[data-sentiment="Curious"] {
+.story-card[data-sentiment='Curious'] {
   background: linear-gradient(145deg, #ebf8ff, #e2f2ff);
 }
 
@@ -159,7 +162,7 @@ button:hover {
     padding: 20px;
     margin: 20px 0;
   }
-  
+
   .story-title {
     font-size: 20px;
   }
@@ -176,7 +179,7 @@ button::after {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,0.2),
+    rgba(255, 255, 255, 0.2),
     transparent
   );
   transition: 0.5s;
