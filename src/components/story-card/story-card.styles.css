@@ -1,0 +1,80 @@
+.story-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.story-title {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.story-meta {
+  color: #555;
+  margin: 4px 0;
+}
+
+.story-text {
+  background: #f7f7f7;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 6px;
+  line-height: 1.5;
+}
+
+.metadata-pre {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.accept-btn,
+.reject-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.accept-btn {
+  background: #3cb371;
+  color: white;
+}
+
+.reject-btn {
+  background: #d9534f;
+  color: white;
+}
+
+.accept-btn:disabled,
+.reject-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.accepted-msg,
+.rejected-msg {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.accepted-msg {
+  color: #2e8b57;
+}
+
+.rejected-msg {
+  color: #b32020;
+}

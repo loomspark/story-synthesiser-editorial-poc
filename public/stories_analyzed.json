@@ -1,0 +1,22 @@
+{
+  "story_1": {
+    "summary": "A student overcame culture shock while studying abroad.",
+    "sentiment": "positive",
+    "keywords": ["travel", "growth", "culture"],
+    "themes": ["identity", "overcoming"],
+    "angles": ["human story", "youth empowerment"],
+    "metadata": {
+      "geo": "UK"
+    }
+  },
+  "story_2": {
+    "summary": "A host family helped an exchange student adapt.",
+    "sentiment": "positive",
+    "keywords": ["family", "community"],
+    "themes": ["support"],
+    "angles": ["relationships"],
+    "metadata": {
+      "geo": "France"
+    }
+  }
+}
