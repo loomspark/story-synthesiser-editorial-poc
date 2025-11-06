@@ -40,7 +40,7 @@ Communicate confidently, sharing valuable insights clearly and credibly.
 Reflect understanding of international experiences and impact.
 Vibrant & Energetic
 Keep the tone lively, optimistic, and forward-looking.
-Use dynamic verbs and positive framing. Clear and Direct Prioritize simplicity and flow. Avoid unnecessary jargon or long, complex sentences. Each paragraph should communicate one clear idea.`
+Use dynamic verbs and positive framing. Clear and Direct Prioritize simplicity and flow. Avoid unnecessary jargon or long, complex sentences. Each paragraph should communicate one clear idea.'`
 }
 
 Story Context:
