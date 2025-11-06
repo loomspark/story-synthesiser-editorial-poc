@@ -43,3 +43,26 @@
   padding: 8px 12px;
   cursor: pointer;
 }
+
+.link-btn {
+  margin-left: 8px;
+  background: none;
+  border: none;
+  color: #1a73e8;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.modal-content-scroll {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.full-story {
+  white-space: pre-wrap;
+  line-height: 1.6;
+}

@@ -1,10 +1,18 @@
+import { useState } from 'react';
 import './story-card.styles.css';
+import Modal from './modal/modal.component';
 
-export default function StoryCard({ story }) {
+export default function StoryCard({ story, previewLength = 180 }) {
   const user = story?.user;
   const experience = story?.experience;
   const s = story?.story;
   const analysis = story?.ai_analysis;
+
+  const [open, setOpen] = useState(false);
+
+  const content = s?.content || '';
+  const isLong = content.length > previewLength;
+  const preview = isLong ? content.slice(0, previewLength).trim() + '…' : content;
 
   return (
     <div className="story-card">
@@ -22,10 +30,17 @@ export default function StoryCard({ story }) {
         </p>
       )}
 
-      {s?.content && (
+      {content && (
         <>
           <h3>Content</h3>
-          <p className="story-text">{s.content}</p>
+          <p className="story-text">
+            {preview}
+            {isLong && (
+              <button className="link-btn" onClick={() => setOpen(true)}>
+                Read more
+              </button>
+            )}
+          </p>
         </>
       )}
 
@@ -58,6 +73,14 @@ export default function StoryCard({ story }) {
         <p className="story-meta">
           Quality Score: {analysis.quality_score.toFixed(2)}
         </p>
+      )}
+
+      {open && (
+        <Modal onClose={() => setOpen(false)} title={s?.title ?? 'Story'}>
+          <div className="modal-content-scroll">
+            <p className="full-story">{content}</p>
+          </div>
+        </Modal>
       )}
     </div>
   );
