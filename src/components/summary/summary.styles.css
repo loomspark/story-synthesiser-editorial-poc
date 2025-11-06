@@ -1,0 +1,45 @@
+.summary {
+  margin-top: 16px;
+}
+
+.summary h3 {
+  margin-top: 16px;
+}
+
+.summary ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.summary-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.accepted-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.accepted-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.accepted-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.danger {
+  background: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
