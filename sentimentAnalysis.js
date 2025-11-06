@@ -28,60 +28,85 @@ const availableThemes = [
     'Urban Experience',
     'Rural Experience',
     'Festivals',
-    'Language Learning'
+    'Language Learning',
+    // Custom themes for advanced analysis
+    'Insurance Denial',
+    'Extreme Financial Loss',
+    'Customer Service Failure',
+    'Antarctica Expedition',
+    'Service Inconsistency'
 ];
 
 // Read the stories from the JSON file
 const stories = JSON.parse(fs.readFileSync('generated_stories.json', 'utf-8'));
+console.log('Loaded', stories.length, 'stories from generated_stories.json');
 
 // Ollama API settings
 const OLLAMA_URL = 'http://localhost:11434/api/generate';
-const MODEL = 'llama3:latest'; // Change if you use a different model
+const MODEL = 'llama3.2'; // Change if you use a different model
 
 // Use Ollama for sentiment analysis
 async function analyzeSentimentOllama(text) {
-    const prompt = `Analyze the following story and return only a JSON object with keys: sentiment (positive, negative, neutral), score (number between -1 and 1), and a short explanation.\nStory: ${text}`;
+    console.log('Sending story to Ollama for sentiment analysis...');
+    const prompt = `Analyze the following story and assign ALL relevant themes from this list to fully capture the context: ${availableThemes.join(', ')}. You may also assign additional themes or use custom sentiment values if appropriate (e.g., Extreme Negative, Insurance Denial, etc.). Return a short text response describing the sentiment (any value that best fits), a quality score (0.0 to 5.0), all applicable themes, and a one-sentence summary. Format your response as: Sentiment: <sentiment>. Quality Score: <score>. Themes: <theme1>, <theme2>, ... Summary: <summary>. Do NOT use JSON.\nStory: ${text}`;
     const response = await fetch(OLLAMA_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ model: MODEL, prompt })
     });
-    const data = await response.json();
-    // Ollama returns streaming output, so we need to parse the response
-    // The response object has a 'response' field with the model's output
-    try {
-        const jsonStart = data.response.indexOf('{');
-        const jsonEnd = data.response.lastIndexOf('}') + 1;
-        const jsonString = data.response.substring(jsonStart, jsonEnd);
-        return JSON.parse(jsonString);
-    } catch (e) {
-        // Log the raw response for debugging
-        fs.appendFileSync('ollama_raw_responses.log', `\n--- RAW RESPONSE ---\n${data.response}\n`);
-        return {
-            sentiment: 'unknown',
-            score: 0,
-            explanation: 'Could not parse Ollama response. Raw response logged to ollama_raw_responses.log.'
-        };
+    let fullResponse = '';
+    for await (const chunk of response.body) {
+        const lines = chunk.toString().split(/\r?\n/).filter(Boolean);
+        for (const line of lines) {
+            try {
+                const obj = JSON.parse(line);
+                if (obj.response) fullResponse += obj.response;
+            } catch (e) {
+                // If not JSON, skip
+            }
+        }
     }
+    // Return the full text response from Ollama
+    console.log('Ollama response received:', fullResponse.trim());
+    return fullResponse.trim();
+}
+
+// Parse AI analysis text into structured data
+function parseAiAnalysis(text) {
+    // Extract fields using regex
+    const sentimentMatch = text.match(/Sentiment:\s*([\w\s\-]+)/i); // allow spaces and hyphens
+    const qualityMatch = text.match(/Quality Score:\s*([\d.]+)/i);
+    const themesMatch = text.match(/Themes:\s*([\w\s,\-]+)/i);
+    const summaryMatch = text.match(/Summary:\s*(.+)$/ims);
+
+    return {
+        sentiment: sentimentMatch ? sentimentMatch[1].trim() : '',
+        quality_score: qualityMatch ? Math.min(1, parseFloat(qualityMatch[1].trim()) / 5) : 0, // Normalize to 0.0-1.0
+        themes: themesMatch ? themesMatch[1].split(',').map(t => t.trim()).filter(Boolean) : [],
+        summary: summaryMatch ? summaryMatch[1].replace(/\n/g, ' ').trim() : ''
+    };
 }
 
 // Main function to process all stories
 async function main() {
+    console.log('Starting sentiment analysis for all stories...');
     const analyzedStories = [];
-    for (const story of stories) {
-        const sentiment = await analyzeSentimentOllama(story.story.body_text);
+    for (let i = 0; i < stories.length; i++) {
+        const story = stories[i];
+        console.log(`Analyzing story ${i + 1} of ${stories.length}:`, story.story.title);
+        const ai_analysis_text = await analyzeSentimentOllama(story.story.body_text);
+        const ai_analysis = parseAiAnalysis(ai_analysis_text);
         analyzedStories.push({
-            storyId: story.story.story_id,
-            title: story.story.title,
-            userId: story.user.user_id,
-            userName: story.user.name,
-            destinationCountry: story.experience.destination_country,
-            experienceType: story.experience.experience_type,
-            theme: story.story.theme || '', // Add theme property, default to empty string
-            sentiment
+            user: story.user,
+            experience: story.experience,
+            story: story.story,
+            ai_analysis
         });
-        console.log(`Analyzed story: ${story.story.title}`);
+        console.log('Finished analyzing:', story.story.title);
+        // Optional: Add a short delay between requests to avoid overloading Ollama
+        await new Promise(resolve => setTimeout(resolve, 500));
     }
+    console.log('Writing results to sentiment_analysis_results.json...');
     fs.writeFileSync('sentiment_analysis_results.json', JSON.stringify(analyzedStories, null, 2));
     console.log('Sentiment analysis completed. Results saved to sentiment_analysis_results.json');
 }

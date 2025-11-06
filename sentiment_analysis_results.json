@@ -1,67 +1,218 @@
 [
   {
-    "storyId": "bbe18146-9b33-4a20-8981-3a68952420f2",
-    "title": "Slap of Fresh Air: My Gap Year Awakening",
-    "userId": "c3758536-415f-47f5-9336-74158f33d8f8",
-    "userName": "Cedric Ferry",
-    "destinationCountry": "New Zealand",
-    "experienceType": "Gap Year",
-    "sentiment": {
-      "sentiment": "unknown",
-      "score": 0,
-      "explanation": "Could not parse Ollama response."
+    "user": {
+      "user_id": "c3758536-415f-47f5-9336-74158f33d8f8",
+      "name": "Cedric Ferry",
+      "gender": "Male",
+      "age": 19,
+      "DOB": "2006-05-19",
+      "origin_address": "St. Cloud, Germany",
+      "nationality": "Germany",
+      "occupation": "Global Configuration Strategist",
+      "education": "Master's",
+      "background": "Cedric Ferry was born and raised in East Justine, a small industrial town in eastern Germany known for its manufacturing and logistics industry. Growing up surrounded by the hum of machinery and the hustle of international trade, Cedric developed an early interest in global business and strategy. After completing his Master's degree at the Technische Universität Dresden, Cedric began his career as a Global Configuration Strategist, working with multinational corporations to optimize their supply chain operations and logistics networks across Europe."
+    },
+    "experience": {
+      "experience_id": "b800bc4c-be64-4d2d-af8d-11a49999fa2f",
+      "destination_country": "New Zealand",
+      "experience_type": "Gap Year"
+    },
+    "story": {
+      "story_id": "bbe18146-9b33-4a20-8981-3a68952420f2",
+      "title": "Slap of Fresh Air: My Gap Year Awakening",
+      "body_text": "As I stepped off the plane in Auckland, New Zealand, the crisp mountain air hit me like a slap in the face, invigorating my senses and shattering any remaining vestiges of jet lag. I had spent the last six months traveling across Europe, attending conferences and networking with industry professionals, but this gap year was different. This time, I wanted to experience the world outside of my comfort zone – literally.\n\nI had chosen New Zealand for its rugged beauty and diverse culture, and as I made my way through customs, I felt a thrill of excitement wash over me. My host family in Wellington, the Te Puni, welcomed me with open arms, and I was enveloped in their warmth and hospitality. We spent our days exploring the city, trying new foods (hello, kiwi fruit!), and engaging in lively debates about politics and society.\n\nOne moment that stands out in my mind is a conversation we had over dinner at the Te Puni's home, where they shared with me the significance of the hangi – a traditional Māori feast cooked in a hole in the ground. I was struck by the rich history and cultural depth behind this simple yet profound practice. As we sat around the fire, sharing stories and laughter, I felt like I was finally starting to grasp the complexity of New Zealand's indigenous culture.\n\nThe more I immersed myself in Kiwi life, the more I realized that my own German upbringing had shielded me from a nuanced understanding of cultural differences. But here, surrounded by the rugged landscapes and warm-hearted people of New Zealand, I began to see the world through fresh eyes – one that recognized the value of tradition, community, and the beauty of the unknown.",
+      "is_negative": false
+    },
+    "ai_analysis": {
+      "sentiment": "Extremely Positive",
+      "quality_score": 0.9,
+      "themes": [
+        "Self-Discovery",
+        "Nature",
+        "Culture",
+        "Community",
+        "Tradition",
+        "Connection",
+        "Exploration",
+        "Discovery",
+        "Local Cuisine",
+        "Wildlife",
+        "Landmarks",
+        "Road Trip",
+        "Backpacking",
+        "Cultural Exchange",
+        "Spirituality",
+        "Adventure",
+        "Urban Experience",
+        "Rural Experience",
+        "Festivals",
+        "Language Learning"
+      ],
+      "summary": "The story follows the narrator's journey as they leave behind their comfort zone and immerse themselves in New Zealand's culture, leading to a deeper understanding of self and the world around them."
     }
   },
   {
-    "storyId": "7fd8043e-2bdf-40c1-8263-56b37d5c7c56",
-    "title": "Lost in Shinjuku: A German Girls Tokyo Awakening",
-    "userId": "5366b94a-b676-4761-832a-d7ea764b1e75",
-    "userName": "Samantha Daugherty",
-    "destinationCountry": "Japan",
-    "experienceType": "Internship",
-    "sentiment": {
-      "sentiment": "unknown",
-      "score": 0,
-      "explanation": "Could not parse Ollama response."
+    "user": {
+      "user_id": "5366b94a-b676-4761-832a-d7ea764b1e75",
+      "name": "Samantha Daugherty",
+      "gender": "Non-binary",
+      "age": 27,
+      "DOB": "1998-07-29",
+      "origin_address": "East Honolulu, Germany",
+      "nationality": "Germany",
+      "occupation": "International Research Agent",
+      "education": "High School",
+      "background": "Samantha Daugherty was born in West Danport, a small town in northern Germany known for its picturesque countryside and rich industrial history. Growing up in a family of modest means, Samantha's parents, both workers at local factories, instilled in her a strong sense of determination and adaptability - skills that would serve her well as she pursued a career in international research, working on projects that took her to diverse locations across Europe and beyond. Despite completing high school without formal university education, Samantha's natural aptitude for languages, combined with her experience working in administrative roles, led her to secure a position as an International Research Agent at a prominent German-based organization."
+    },
+    "experience": {
+      "experience_id": "12b22af8-414c-4560-974b-67def1ffb3a7",
+      "destination_country": "Japan",
+      "experience_type": "Internship"
+    },
+    "story": {
+      "story_id": "7fd8043e-2bdf-40c1-8263-56b37d5c7c56",
+      "title": "Lost in Shinjuku: A German Girls Tokyo Awakening",
+      "body_text": "As I stepped off the train at Shinjuku Station, a rush of unfamiliar sounds and scents enveloped me. The humid Japanese air was a stark contrast to the crisp Berlin breeze I'd grown accustomed to. My heart quickened with excitement as I lugged my suitcases through the bustling station, eager to start my internship in Tokyo.\n\nThe days blended together in a kaleidoscope of sensory experiences – from the first time I sipped matcha at a traditional tea house to trying my hand (and taste buds) at sushi-making. My colleagues welcomed me with open arms, patiently guiding me through the intricacies of Japanese etiquette and language.\n\nOne moment that still makes me smile is when I stumbled upon a small alleyway in Shimokitazawa filled with tiny shops and cafes. A kind old man, sensing my bewilderment, offered me a steaming cup of coffee and invited me to sit. We chatted about everything from cherry blossoms to the intricacies of Berliner cuisine – our conversation bridged cultural divides, revealing the humanity that unites us.\n\nIn Japan, I discovered a culture that balances tradition with innovation, where ancient customs meet cutting-edge technology. As an outsider, I found myself both privileged and humbled by this encounter. In these moments, I felt less like a foreigner and more like a fellow traveler, part of a larger story unfolding in this enchanting land.\n\nThese experiences have taught me to appreciate the beauty of cultural exchange – not just as an intern but as a lifelong pursuit. The connections I've forged here will remain etched in my heart long after my time in Japan ends.",
+      "is_negative": false
+    },
+    "ai_analysis": {
+      "sentiment": "Positive",
+      "quality_score": 0.96,
+      "themes": [
+        "Culture",
+        "Self-Discovery",
+        "Community",
+        "Tradition",
+        "Innovation",
+        "Connection",
+        "Exploration",
+        "Discovery",
+        "Local Cuisine",
+        "Wildlife"
+      ],
+      "summary": "The story of an American intern's experience in Japan is a heartwarming tale of cultural exchange and personal growth, highlighting the transformative power of immersion and connection with others."
     }
   },
   {
-    "storyId": "f0e20c7c-4000-4a98-b9f7-c5b65a0bae3d",
-    "title": "Slapping Away Culture Shock in Buenos Aires",
-    "userId": "453b280d-7889-4ea8-905d-edb8aa591888",
-    "userName": "Noel Wehner",
-    "destinationCountry": "Argentina",
-    "experienceType": "Au Pair",
-    "sentiment": {
-      "sentiment": "unknown",
-      "score": 0,
-      "explanation": "Could not parse Ollama response."
+    "user": {
+      "user_id": "453b280d-7889-4ea8-905d-edb8aa591888",
+      "name": "Noel Wehner",
+      "gender": "Female",
+      "age": 31,
+      "DOB": "1994-01-28",
+      "origin_address": "Port Fletaland, Germany",
+      "nationality": "Germany",
+      "occupation": "National Mobility Architect",
+      "education": "Bachelor's",
+      "background": "Noel Wehner grew up in Fort Mariontown, a small town in eastern Bavaria, Germany, where he developed a passion for technology and transportation from an early age. After completing his Bachelor's degree in Mobility Sciences at the Technical University of Munich, Noel began working as a National Mobility Architect, designing and implementing sustainable transportation systems for cities across Germany. His work has taken him to various parts of the country, allowing him to stay connected to his roots while exploring new challenges and opportunities."
+    },
+    "experience": {
+      "experience_id": "4e02b050-b277-4c25-a2e7-45f5c047e837",
+      "destination_country": "Argentina",
+      "experience_type": "Au Pair"
+    },
+    "story": {
+      "story_id": "f0e20c7c-4000-4a98-b9f7-c5b65a0bae3d",
+      "title": "Slapping Away Culture Shock in Buenos Aires",
+      "body_text": "As I stepped off the plane in Buenos Aires, Argentina, the warm Argentine sun hit me like a gentle slap in the face, a welcome change from the crisp German winters I was used to. I had never been one for traditional travel experiences, but when I decided to take on an au pair position in a small town in the countryside, I knew it would be a chance to immerse myself in a new culture and way of life.\n\nMy host family, the González's, welcomed me with open arms, and we quickly settled into a routine that included long walks, delicious meals, and lively conversations. I was tasked with caring for their three energetic children, but also learning Spanish, cooking traditional asado dishes, and helping with the family's small organic farm.\n\nOne of my favorite moments was when the kids taught me how to play a game called \"chascarrillas,\" a hilarious dance that left us all in stitches. As we twirled and spun around the living room, I felt like a kid again, free from the stress of work and technology.\n\nOver time, I began to notice small changes in myself - my Spanish improved, my cooking skills expanded, and my understanding of Argentine culture deepened. But it was the moments of kindness and generosity that really stood out to me - when Señora González offered me a warm cup of yerba mate, or when her husband invited me to join them for a traditional tango night.\n\nI realized that this experience wasn't just about taking care of children, but about becoming part of a community. As I looked around at the vibrant colors and sounds of Buenos Aires, I felt grateful to have found my own rhythm in Argentina - one that was rich in tradition, love, and connection.",
+      "is_negative": false
+    },
+    "ai_analysis": {
+      "sentiment": "Extremely Positive",
+      "quality_score": 1,
+      "themes": [
+        "Culture",
+        "Self-Discovery",
+        "Community",
+        "Tradition",
+        "Exploration",
+        "Connection",
+        "Local Cuisine",
+        "Wildlife",
+        "Landmarks",
+        "Rural Experience",
+        "Festivals",
+        "Language Learning",
+        "Spirituality",
+        "Adventure",
+        "Service Inconsistency"
+      ],
+      "summary": "The story is a heartwarming and introspective account of the author's experience as an au pair in Argentina, where they immersed themselves in the local culture, formed meaningful connections with their host family, and discovered new aspects of themselves."
     }
   },
   {
-    "storyId": "f0265989-5b9b-4cc9-aec2-07afa3c70f29",
-    "title": "Step into Jaipurs Vibrant Chaos",
-    "userId": "a6abc767-77fd-455d-8e3d-062180b9fe8e",
-    "userName": "Jaime Hoppe",
-    "destinationCountry": "India",
-    "experienceType": "Gap Year",
-    "sentiment": {
-      "sentiment": "unknown",
-      "score": 0,
-      "explanation": "Could not parse Ollama response."
+    "user": {
+      "user_id": "a6abc767-77fd-455d-8e3d-062180b9fe8e",
+      "name": "Jaime Hoppe",
+      "gender": "Male",
+      "age": 23,
+      "DOB": "2002-04-25",
+      "origin_address": "New Kaitlinstead, Japan",
+      "nationality": "Japan",
+      "occupation": "Forward Division Agent",
+      "education": "Bachelor's",
+      "background": "Jaime Hoppe was born in the small town of Laneborough, on the outskirts of Tokyo, where his family had resided for generations, having fled from a rural province in Kyushu years ago. Growing up amidst the bustling streets of Shinjuku and Shibuya, Jaime developed an innate curiosity about the world beyond Japan's borders, which eventually led him to pursue a career in foreign intelligence with the Japanese government. After completing his Bachelor's degree in International Relations at Waseda University, Jaime began working as a Forward Division Agent, tasked with gathering critical information from the streets of Tokyo and abroad."
+    },
+    "experience": {
+      "experience_id": "3ebf7a69-12b4-4c37-8615-34a064bb69c1",
+      "destination_country": "India",
+      "experience_type": "Gap Year"
+    },
+    "story": {
+      "story_id": "f0265989-5b9b-4cc9-aec2-07afa3c70f29",
+      "title": "Step into Jaipurs Vibrant Chaos",
+      "body_text": "As I stepped off the train in Jaipur, the vibrant chaos of India enveloped me like a warm hug. I had spent months preparing for this gap year abroad, but nothing could have truly prepared me for the sensory overload that awaited me in this ancient city. As a Forward Division Agent, I'm no stranger to cultural immersion, but there's something about immersing myself in a foreign land as a traveler that feels different.\n\nI wandered through the bustling streets of Johari Bazaar, taking in the kaleidoscope of colors and sounds. The scent of spices and incense filled my nostrils as I haggled over prices with vendors selling everything from intricately carved wooden trinkets to vibrant silk fabrics. A young boy, no more than ten years old, caught my eye, his bright smile and sparkling eyes drawing me in as he danced to the rhythm of the street performers.\n\nI stopped at a small temple on the outskirts of the city, where I was greeted by the warm hospitality of the local priestess. She offered me tea and a seat on the intricately carved stone floor, and I listened intently as she shared stories of the ancient traditions and myths that still linger in these sacred spaces.\n\nAs I explored the city over the next few weeks, I found myself becoming more confident in my ability to navigate this unfamiliar landscape. But it was moments like those with the priestess – when the barriers between cultures seemed to dissolve, and all that remained was a deep connection – that truly revealed the beauty of India's cultural tapestry.",
+      "is_negative": false
+    },
+    "ai_analysis": {
+      "sentiment": "Positive",
+      "quality_score": 0.9,
+      "themes": [
+        "Cultural Exchange",
+        "Self-Discovery",
+        "Community",
+        "Spirituality",
+        "Connection",
+        "Exploration",
+        "Tradition",
+        "Nature"
+      ],
+      "summary": "The narrator embarks on a transformative gap year in India, experiencing vibrant cultural immersion and deep connections with local communities.  Note: I excluded themes such as Road Trip, Backpacking, Volunteering, Study Abroad, Solo Travel, Group Travel, Customer Service Failure, Insurance Denial, Antarctica Expedition, and Language Learning from the list as they were not explicitly mentioned or implied in the story. The sentiment is positive due to the narrator's enthusiasm for cultural immersion and their sense of connection with the local community."
     }
   },
   {
-    "storyId": "28257fd3-dabd-4336-9205-f30c8c1cf9cc",
-    "title": "Lost in Land Down Under",
-    "userId": "d806453f-f03a-48b6-90cb-26d936f5c609",
-    "userName": "Jenna Sauer V",
-    "destinationCountry": "Australia",
-    "experienceType": "Internship",
-    "sentiment": {
-      "sentiment": "unknown",
-      "score": 0,
-      "explanation": "Could not parse Ollama response."
+    "user": {
+      "user_id": "d806453f-f03a-48b6-90cb-26d936f5c609",
+      "name": "Jenna Sauer V",
+      "gender": "Non-binary",
+      "age": 19,
+      "DOB": "2006-10-29",
+      "origin_address": "East Adele, Japan",
+      "nationality": "Japan",
+      "occupation": "Central Infrastructure Consultant",
+      "education": "High School",
+      "background": "Jenna Sauer V was born in West Fletcher, a small town on the outskirts of Kyoto, Japan, where she spent most of her childhood surrounded by lush greenery and traditional architecture. Growing up, Jenna showed a keen interest in technology and engineering, which led her to pursue a career as a Central Infrastructure Consultant after completing high school. Despite being one of the few students from her rural hometown to attend high school in Tokyo for their senior year, Jenna's passion for designing and building efficient infrastructure systems propelled her towards this rewarding profession."
+    },
+    "experience": {
+      "experience_id": "532ef35b-a81f-43c1-b913-9258bd61c51c",
+      "destination_country": "Australia",
+      "experience_type": "Internship"
+    },
+    "story": {
+      "story_id": "28257fd3-dabd-4336-9205-f30c8c1cf9cc",
+      "title": "Lost in Land Down Under",
+      "body_text": "As I stepped off the plane in Melbourne, Australia, I couldn't help but feel a rush of excitement mixed with nervousness. Growing up in rural West Fletcher, Japan, I had never imagined myself traveling to another continent for an internship, let alone one that would take me by surprise like this.\n\nMy internship at an urban planning firm in Sydney was designed to be a cultural exchange experience, and I was eager to immerse myself in the Australian way of life. As I settled into my new apartment, a cozy studio in a shared house in Bondi Beach, I felt a sense of freedom I had never experienced before.\n\nMy days were filled with learning about urban design principles and working on projects that showcased innovative infrastructure solutions. But it was the little moments that truly stole my heart – like watching a sunrise over the Sydney Opera House with my colleagues, or trying traditional Australian cuisine like meat pies and fish and chips at a local pub.\n\nOne of the most profound cultural exchanges I had during this experience was when I attended a didgeridoo lesson in Bondi. Watching my instructors masterfully play the ancient instrument, I felt a deep connection to the rich history and spirituality of Australia's indigenous people. It was a humbling reminder that there is so much more to discover beyond my own cultural bubble.\n\nAs I explored this new country, I realized how much I had taken for granted about my own culture – from the intricacies of Japanese etiquette to the nuances of rural life in West Fletcher. This internship was not just an opportunity to learn technical skills; it was a chance to connect with a foreign land and its people on a deeper level, one that has stayed with me long after I returned home.",
+      "is_negative": false
+    },
+    "ai_analysis": {
+      "sentiment": "Positive",
+      "quality_score": 0.9,
+      "themes": [
+        "Self-Discovery",
+        "Culture",
+        "Nature"
+      ],
+      "summary": "The story follows the narrator's transformative experience of cultural exchange and self-discovery in Australia, where they immerse themselves in a new culture, learn about traditional practices, and connect with nature, ultimately returning home with a deeper understanding of their own roots."
     }
   }
 ]
