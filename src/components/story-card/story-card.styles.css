@@ -4,6 +4,7 @@
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
+  position: relative;
 }
 
 .story-title {
@@ -77,4 +78,21 @@
 
 .rejected-msg {
   color: #b32020;
+}
+
+.profile-picture {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ccc;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

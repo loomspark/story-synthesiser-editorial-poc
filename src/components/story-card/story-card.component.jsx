@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './story-card.styles.css';
-import Modal from './modal/modal.component';
+import Modal from '../modal/modal.component';
 
 export default function StoryCard({ story, previewLength = 180 }) {
   const user = story?.user;
