@@ -1,22 +1,117 @@
-{
-  "story_1": {
-    "summary": "A student overcame culture shock while studying abroad.",
-    "sentiment": "positive",
-    "keywords": ["travel", "growth", "culture"],
-    "themes": ["identity", "overcoming"],
-    "angles": ["human story", "youth empowerment"],
-    "metadata": {
-      "geo": "UK"
+[
+  {
+    "user": {
+      "id": 201,
+      "name": "Lina Morales",
+      "role": "Student Exchange Participant"
+    },
+    "experience": {
+      "years_active": 1,
+      "region": "Japan",
+      "focus_area": "Cultural Studies"
+    },
+    "story": {
+      "id": 1,
+      "title": "A Bento Box and a Lesson in Patience",
+      "content": "During my first week in Tokyo, I got lost trying to find my host family's home. A kind old lady noticed my confusion and, without speaking a word of English, guided me through winding alleys. We shared a small lunch from her bento box — the moment I realized kindness transcends language."
+    },
+    "ai_analysis": {
+      "sentiment": "Heartwarming",
+      "quality_score": 0.95,
+      "themes": ["Kindness", "Cultural Connection", "Empathy"],
+      "summary": "An exchange student learns that compassion needs no translation."
     }
   },
-  "story_2": {
-    "summary": "A host family helped an exchange student adapt.",
-    "sentiment": "positive",
-    "keywords": ["family", "community"],
-    "themes": ["support"],
-    "angles": ["relationships"],
-    "metadata": {
-      "geo": "France"
+  {
+    "user": {
+      "id": 202,
+      "name": "Jonas Müller",
+      "role": "Volunteer Teacher"
+    },
+    "experience": {
+      "years_active": 3,
+      "region": "Kenya",
+      "focus_area": "Education & Community Work"
+    },
+    "story": {
+      "id": 2,
+      "title": "Chalk Dust and New Horizons",
+      "content": "In a small Kenyan village, I taught English to children who walked miles each day just to learn. They taught me Swahili songs in return. I came to teach language — but left understanding humanity."
+    },
+    "ai_analysis": {
+      "sentiment": "Positive",
+      "quality_score": 0.92,
+      "themes": ["Education", "Gratitude", "Mutual Learning"],
+      "summary": "A teacher’s journey that becomes a shared exchange of hope and knowledge."
+    }
+  },
+  {
+    "user": {
+      "id": 203,
+      "name": "Aya Nakamura",
+      "role": "Travel Blogger"
+    },
+    "experience": {
+      "years_active": 5,
+      "region": "Turkey",
+      "focus_area": "Cross-Cultural Exploration"
+    },
+    "story": {
+      "id": 3,
+      "title": "Tea, Carpets, and Conversations",
+      "content": "In Istanbul, I spent an afternoon drinking tea with a carpet seller who spoke passionately about his family's 200-year-old weaving tradition. We didn’t agree on everything, but we respected each other's worlds. That tea taught me more about diplomacy than any book ever did."
+    },
+    "ai_analysis": {
+      "sentiment": "Curious",
+      "quality_score": 0.89,
+      "themes": ["Dialogue", "Tradition", "Respect"],
+      "summary": "A spontaneous encounter that bridges centuries of culture over a cup of tea."
+    }
+  },
+  {
+    "user": {
+      "id": 204,
+      "name": "Fatima El-Khalil",
+      "role": "Exchange Mentor"
+    },
+    "experience": {
+      "years_active": 7,
+      "region": "Germany",
+      "focus_area": "Intercultural Youth Programs"
+    },
+    "story": {
+      "id": 4,
+      "title": "When Homesickness Became Home",
+      "content": "I met Maria, a homesick student from Brazil, who spent nights crying over her family. We started cooking feijoada together every Sunday. Soon others joined, and our small kitchen became a world of its own — laughter, languages, and shared recipes replacing loneliness."
+    },
+    "ai_analysis": {
+      "sentiment": "Bittersweet",
+      "quality_score": 0.94,
+      "themes": ["Friendship", "Community", "Belonging"],
+      "summary": "Cooking becomes the language of healing and connection for exchange students."
+    }
+  },
+  {
+    "user": {
+      "id": 205,
+      "name": "Rafael Ortega",
+      "role": "Peace Studies Researcher"
+    },
+    "experience": {
+      "years_active": 9,
+      "region": "Bosnia and Herzegovina",
+      "focus_area": "Post-Conflict Reconciliation"
+    },
+    "story": {
+      "id": 5,
+      "title": "Coffee After the War",
+      "content": "I sat with two men who had once fought on opposite sides. They laughed over bitter coffee and old football matches. When I asked what changed, one said, 'We got tired of hating.' That moment — that quiet peace — was worth a lifetime of study."
+    },
+    "ai_analysis": {
+      "sentiment": "Enlightened",
+      "quality_score": 0.97,
+      "themes": ["Peace", "Forgiveness", "Reconciliation"],
+      "summary": "A powerful encounter showing how shared humanity outlasts conflict."
     }
   }
-}
+]

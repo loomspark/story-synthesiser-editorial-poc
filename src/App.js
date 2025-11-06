@@ -14,11 +14,8 @@ export default function App() {
     fetch('/stories_analyzed.json')
       .then((res) => res.json())
       .then((data) => {
-        const storyArray = Object.entries(data).map(([id, content]) => ({
-          id,
-          ...content,
-        }));
-        setStories(storyArray);
+        // New schema is already an array of entries
+        setStories(Array.isArray(data) ? data : []);
       });
   }, []);
 

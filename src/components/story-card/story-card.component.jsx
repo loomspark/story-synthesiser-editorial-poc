@@ -1,44 +1,63 @@
 import './story-card.styles.css';
 
 export default function StoryCard({ story }) {
+  const user = story?.user;
+  const experience = story?.experience;
+  const s = story?.story;
+  const analysis = story?.ai_analysis;
+
   return (
     <div className="story-card">
-      <h2 className="story-title">Story ID: {story.id}</h2>
+      <h2 className="story-title">{s?.title ?? `Story #${s?.id ?? ''}`}</h2>
 
-      <h3>Summary</h3>
-      <p className="story-text">{story.summary}</p>
+      {user && (
+        <p className="story-meta">
+          By {user.name} ({user.role})
+        </p>
+      )}
+      {experience && (
+        <p className="story-meta">
+          Region: {experience.region} • Focus: {experience.focus_area} • Years:{' '}
+          {experience.years_active}
+        </p>
+      )}
 
-      <h3>Sentiment</h3>
-      <p className="story-meta">{story.sentiment}</p>
-
-      <h3>Keywords</h3>
-      <ul>
-        {story.keywords?.map((k, i) => (
-          <li key={i}>{k}</li>
-        ))}
-      </ul>
-
-      <h3>Themes</h3>
-      <ul>
-        {story.themes?.map((t, i) => (
-          <li key={i}>{t}</li>
-        ))}
-      </ul>
-
-      <h3>Suggested Angles</h3>
-      <ul>
-        {story.angles?.map((a, i) => (
-          <li key={i}>{a}</li>
-        ))}
-      </ul>
-
-      {story.metadata && (
+      {s?.content && (
         <>
-          <h3>Metadata</h3>
-          <pre className="metadata-pre">
-            {JSON.stringify(story.metadata, null, 2)}
-          </pre>
+          <h3>Content</h3>
+          <p className="story-text">{s.content}</p>
         </>
+      )}
+
+      {analysis?.summary && (
+        <>
+          <h3>AI Summary</h3>
+          <p className="story-text">{analysis.summary}</p>
+        </>
+      )}
+
+      {analysis?.sentiment && (
+        <>
+          <h3>Sentiment</h3>
+          <p className="story-meta">{analysis.sentiment}</p>
+        </>
+      )}
+
+      {Array.isArray(analysis?.themes) && analysis.themes.length > 0 && (
+        <>
+          <h3>Themes</h3>
+          <ul>
+            {analysis.themes.map((t, i) => (
+              <li key={i}>{t}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {typeof analysis?.quality_score === 'number' && (
+        <p className="story-meta">
+          Quality Score: {analysis.quality_score.toFixed(2)}
+        </p>
       )}
     </div>
   );
