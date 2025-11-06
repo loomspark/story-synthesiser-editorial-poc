@@ -84,15 +84,17 @@ export default function App() {
       return;
     }
   
-    const toProcess = acceptedStories.filter((s) => newIds.includes(s?.story?.id));
+    const toProcess = acceptedStories.filter((s) =>
+      newIds.includes(s?.story?.id)
+    );
   
     setSubmissionMsg('Submission accepted.');
     setSubmittedIds((prev) => [...prev, ...newIds]);
   
-    // Do NOT clear the list anymore:
-    // setAcceptedStories([]);
+    // Clear the accepted list after a successful submit
+    setAcceptedStories([]);
   
-    // Go straight to the AI page
+    // Go to the AI page
     setShowSummary(false);
     setShowAIPage(true);
     startAiProcessing(toProcess);
